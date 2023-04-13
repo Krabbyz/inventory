@@ -54,7 +54,7 @@ const DataTable = () => {
     {
       title: "Name",
       dataIndex: "name",
-      width: "30.7%",
+      width: "30%",
       sorter: (a, b) => a.name.localeCompare(b.name),
       render: (text, record) => {
         if (editingRow === record.key) {
@@ -68,7 +68,7 @@ const DataTable = () => {
                 },
               ]}
             >
-              <Input onPressEnter={() => form.submit()} />
+              <Input size="small" onPressEnter={() => form.submit()} />
             </Form.Item>
           );
         } else {
@@ -79,7 +79,7 @@ const DataTable = () => {
     {
       title: "Boxes",
       dataIndex: "boxes",
-      width: "30.7%",
+      width: "30%",
       sorter: (a, b) => {
         if (a.boxes === b.boxes) {
           return a.amount - b.amount;
@@ -91,7 +91,7 @@ const DataTable = () => {
         if (editingRow === record.key) {
           return (
             <Form.Item name="boxes">
-              <Input onPressEnter={() => form.submit()} />
+              <Input size="small" onPressEnter={() => form.submit()} />
             </Form.Item>
           );
         } else {
@@ -102,13 +102,13 @@ const DataTable = () => {
     {
       title: "Amount",
       dataIndex: "amount",
-      width: "30.6%",
+      width: "30%",
       sorter: (a, b) => a.amount - b.amount,
       render: (text, record) => {
         if (editingRow === record.key) {
           return (
             <Form.Item name="amount">
-              <Input onPressEnter={() => form.submit()} />
+              <Input size="small" onPressEnter={() => form.submit()} />
             </Form.Item>
           );
         } else {
@@ -118,24 +118,16 @@ const DataTable = () => {
     },
     {
       title: "Actions",
-      width: "8%",
+      width: "10%",
       render: (_, record) => {
         return (
           <>
             {editingRow === record.key ? (
               <>
-                <Button
-                  type="link"
-                  className="largeText"
-                  onClick={() => form.submit()}
-                >
+                <Button type="link" onClick={() => form.submit()}>
                   Save
                 </Button>
-                <Button
-                  type="link"
-                  className="largeText"
-                  onClick={() => setEditingRow(null)}
-                >
+                <Button type="link" onClick={() => setEditingRow(null)}>
                   Cancel
                 </Button>
               </>
@@ -143,7 +135,6 @@ const DataTable = () => {
               <>
                 <Button
                   type="link"
-                  className="largeText"
                   onClick={() => {
                     setEditingRow(record.key);
                     form.setFieldsValue({
@@ -156,11 +147,7 @@ const DataTable = () => {
                   Edit
                 </Button>
                 <Popconfirm
-                  title={
-                    <span style={{ fontSize: "18px" }}>
-                      Are you sure you want to delete this row?
-                    </span>
-                  }
+                  title={<span>Are you sure you want to delete this row?</span>}
                   onConfirm={() => deleteRow(record.key)}
                   okText="Yes"
                   cancelText="No"
@@ -168,7 +155,7 @@ const DataTable = () => {
                   cancelButtonProps={{ size: "large" }}
                   placement="topRight"
                 >
-                  <Button type="link" className="largeText" danger>
+                  <Button type="link" danger>
                     Delete
                   </Button>
                 </Popconfirm>
@@ -195,6 +182,7 @@ const DataTable = () => {
       amount: "enter amount",
     };
     setDataSource([...dataSource, newRow]);
+    setEditingRow(newRow.key);
   };
 
   const deleteRow = (key) => {
@@ -226,6 +214,7 @@ const DataTable = () => {
             Add new item
           </Button>
           <Table
+            rowClassName="table-row-small"
             columns={columns}
             dataSource={filterData()}
             pagination={false}

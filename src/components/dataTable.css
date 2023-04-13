@@ -1,27 +1,23 @@
 .searchBar-large input {
-  height: 40px;
-  font-size: 18px;
+  height: 35px;
+  font-size: 16px;
 }
 
 .searchBar-large .ant-input-search-button {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 
 .searchBar-large .ant-input-search-button .anticon {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .ant-table-thead .ant-table-cell {
   font-weight: bold;
 }
 
-.ant-table-cell {
-  font-size: 16px;
-}
-
-.largeText {
-  font-size: 18px;
+.ant-table-tbody {
+  font-size: 13px;
 }
 
 .margin {
