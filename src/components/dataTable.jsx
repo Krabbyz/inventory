@@ -1,74 +1,33 @@
 import { Button, Table, Form, Input, Popconfirm } from "antd";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./dataTable.css";
 
-const DataTable = () => {
+const DataTable = ({ data, onDataUpdate }) => {
   const [dataSource, setDataSource] = useState([]);
   const [editingRow, setEditingRow] = useState(null);
   const [form] = Form.useForm();
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    const data = [
-      {
-        key: `0`,
-        name: `Black Tea`,
-        boxes: `2`,
-        amount: `46`,
-      },
-      {
-        key: `1`,
-        name: `Green Tea`,
-        boxes: `1`,
-        amount: `16`,
-      },
-      {
-        key: `2`,
-        name: `Earl Grey Tea`,
-        boxes: `4`,
-        amount: `92`,
-      },
-      {
-        key: `3`,
-        name: `Oolong Tea`,
-        boxes: `2`,
-        amount: `56`,
-      },
-      {
-        key: `4`,
-        name: `Strawberry Syrup`,
-        boxes: `1`,
-        amount: `2`,
-      },
-      {
-        key: `5`,
-        name: `Passionfruit Syrup`,
-        boxes: `5`,
-        amount: `52`,
-      },
-    ];
     setDataSource(data);
-  }, []);
+  }, [data]);
 
   const columns = [
     {
       title: "Name",
       dataIndex: "name",
-      width: "30%",
+      width: "25%",
       sorter: (a, b) => a.name.localeCompare(b.name),
       render: (text, record) => {
         if (editingRow === record.key) {
           return (
-            <Form.Item
-              name="name"
-              rules={[
-                {
-                  required: true,
-                  message: "Enter item name",
-                },
-              ]}
-            >
-              <Input size="small" onPressEnter={() => form.submit()} />
+            <Form.Item name="name" rules={[{ required: true }]}>
+              <Input
+                placeholder="Enter name"
+                size="small"
+                onPressEnter={() => form.submit()}
+              />
             </Form.Item>
           );
         } else {
@@ -77,42 +36,95 @@ const DataTable = () => {
       },
     },
     {
-      title: "Boxes",
-      dataIndex: "boxes",
-      width: "30%",
+      title: editingRow != null ? "Amount per box" : "Boxes",
+      dataIndex: "amountPerBox",
+      width: "25%",
       sorter: (a, b) => {
-        if (a.boxes === b.boxes) {
-          return a.amount - b.amount;
-        } else {
-          return a.boxes - b.boxes;
-        }
+        const boxesA = Math.floor(a.amount / a.amountPerBox);
+        const boxesB = Math.floor(b.amount / b.amountPerBox);
+        return boxesA - boxesB;
       },
       render: (text, record) => {
         if (editingRow === record.key) {
           return (
-            <Form.Item name="boxes">
-              <Input size="small" onPressEnter={() => form.submit()} />
+            <Form.Item name="amountPerBox" rules={[{ required: true }]}>
+              <Input
+                placeholder="Enter amount per box"
+                size="small"
+                onPressEnter={() => form.submit()}
+              />
             </Form.Item>
           );
         } else {
-          return <p>{text}</p>;
+          const boxes = Math.floor(record.amount / record.amountPerBox);
+          return <p>{boxes}</p>;
         }
       },
     },
     {
       title: "Amount",
       dataIndex: "amount",
-      width: "30%",
+      width: "25%",
       sorter: (a, b) => a.amount - b.amount,
       render: (text, record) => {
         if (editingRow === record.key) {
           return (
-            <Form.Item name="amount">
-              <Input size="small" onPressEnter={() => form.submit()} />
+            <Form.Item name="amount" rules={[{ required: true }]}>
+              <Input
+                placeholder="Enter amount"
+                size="small"
+                onPressEnter={() => form.submit()}
+              />
             </Form.Item>
           );
         } else {
           return <p>{text}</p>;
+        }
+      },
+    },
+    {
+      title: "SKU",
+      dataIndex: "sku",
+      width: "10%",
+      render: (text, record) => {
+        if (editingRow === record.key) {
+          return (
+            <Form.Item name="sku" rules={[{ required: true }]}>
+              <Input
+                placeholder="Enter sku"
+                size="small"
+                onPressEnter={() => form.submit()}
+              />
+            </Form.Item>
+          );
+        } else {
+          return <p>{text}</p>;
+        }
+      },
+    },
+    {
+      title: "Image",
+      dataIndex: "imageUrl",
+      width: "5%",
+      render: (imageUrl, record) => {
+        if (editingRow === record.key) {
+          return (
+            <Form.Item name="imageUrl">
+              <Input
+                size="small"
+                onPressEnter={() => form.submit()}
+                placeholder="Image URL"
+              />
+            </Form.Item>
+          );
+        } else {
+          return (
+            <img
+              src={imageUrl}
+              alt="item"
+              style={{ width: "100%", maxWidth: "100px" }}
+            />
+          );
         }
       },
     },
@@ -139,8 +151,10 @@ const DataTable = () => {
                     setEditingRow(record.key);
                     form.setFieldsValue({
                       name: record.name,
-                      boxes: record.boxes,
+                      amountPerBox: record.amountPerBox,
                       amount: record.amount,
+                      sku: record.sku,
+                      imageUrl: record.imageUrl,
                     });
                   }}
                 >
@@ -169,19 +183,40 @@ const DataTable = () => {
 
   const onFinish = (values) => {
     const updatedDataSource = [...dataSource];
-    updatedDataSource.splice(editingRow, 1, { ...values, key: editingRow });
+    updatedDataSource.splice(editingRow, 1, {
+      ...values,
+      key: editingRow,
+      imageUrl: values.imageUrl || "https://i.imgur.com/cT7B2nD.png",
+    });
+
     setDataSource(updatedDataSource);
+    onDataUpdate(updatedDataSource);
     setEditingRow(null);
+  };
+
+  const getNextAvailableKey = () => {
+    let nextKey = 0;
+    const isKeyTaken = (key) => {
+      return dataSource.some((row) => row.key === String(key));
+    };
+    while (isKeyTaken(nextKey)) {
+      nextKey++;
+    }
+    return String(nextKey);
   };
 
   const addNewRow = () => {
     const newRow = {
-      key: dataSource.length,
+      key: getNextAvailableKey(),
       name: "enter name",
-      boxes: "enter box amount",
+      amountPerBox: "enter box amount",
       amount: "enter amount",
+      imageUrl: "https://i.imgur.com/cT7B2nD.png",
+      sku: "enter sku",
     };
-    setDataSource([...dataSource, newRow]);
+    const updatedDataSource = [...dataSource, newRow];
+    setDataSource(updatedDataSource);
+    onDataUpdate(updatedDataSource);
     setEditingRow(newRow.key);
   };
 
@@ -201,28 +236,29 @@ const DataTable = () => {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Form form={form} onFinish={onFinish}>
-          <Input.Search
-            className="searchBar-large margin"
-            placeholder="Search by name"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <Button onClick={addNewRow} type="primary" className="margin">
-            Add new item
-          </Button>
-          <Table
-            rowClassName="table-row-small"
-            columns={columns}
-            dataSource={filterData()}
-            pagination={false}
-            bordered
-            size="small"
-          ></Table>
-        </Form>
-      </header>
+    <div className="pad">
+      <Form form={form} onFinish={onFinish} className="margin-bot">
+        <Input.Search
+          className="searchBar-large margin-bot"
+          placeholder="Search by name"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <Button onClick={addNewRow} type="primary" className="margin-bot">
+          Add new item
+        </Button>
+        <Table
+          rowClassName="table-row-small"
+          columns={columns}
+          dataSource={filterData()}
+          pagination={false}
+          bordered
+          size="small"
+        ></Table>
+      </Form>
+      <Link to="/user">
+        <Button>other page</Button>
+      </Link>
     </div>
   );
 };

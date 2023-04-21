@@ -1,0 +1,30 @@
+.scrollContainer {
+  overflow-x: auto;
+  display: inline-flex;
+  white-space: nowrap;
+  max-width: 100%;
+  gap: 20px;
+  padding-block: 15px;
+  padding-inline: 3px;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tileContainer {
+  padding-top: 50px;
+  padding-inline: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.margin {
+  margin-inline: 40px;
+  margin-top: 10px;
+}
+
+h2 {
+  margin-block-start: 0px;
+  margin-block-end: 10px;
+}
