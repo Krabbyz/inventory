@@ -147,7 +147,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <React.Fragment basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route
             path="/"
