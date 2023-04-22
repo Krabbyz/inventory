@@ -4,23 +4,17 @@
   white-space: nowrap;
   max-width: 100%;
   gap: 20px;
-  padding-block: 15px;
+  padding-block: 5px;
   padding-inline: 3px;
+  margin-bottom: 1%;
 }
 
 .scrollContainer::-webkit-scrollbar {
   display: none;
 }
 
-.tileContainer {
-  padding-top: 50px;
-  padding-inline: 50px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .margin {
-  margin-inline: 40px;
+  margin-inline: 1.5%;
   margin-top: 10px;
 }
 
