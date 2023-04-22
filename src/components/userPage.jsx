@@ -5,6 +5,10 @@ import Tile from "./tile";
 import "./userPage.css";
 
 class UserPage extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const other = ["tea", "syrup", "powder"];
 

@@ -10,6 +10,10 @@ const DataTable = ({ data, onDataUpdate }) => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     setDataSource(data);
   }, [data]);
 
@@ -86,6 +90,7 @@ const DataTable = ({ data, onDataUpdate }) => {
       title: "SKU",
       dataIndex: "sku",
       width: "10%",
+      sorter: (a, b) => a.sku.localeCompare(b.sku),
       render: (text, record) => {
         if (editingRow === record.key) {
           return (
