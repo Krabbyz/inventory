@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import DataTable from "./components/dataTable";
 import UserPage from "./components/userPage";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 class App extends Component {
   state = {
@@ -147,10 +147,11 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment basename={process.env.PUBLIC_URL}>
+      <React.Fragment>
         <Routes>
+          <Route path="/" element={<Navigate to="/dataTable" replace />} />
           <Route
-            path="/"
+            path="/dataTable"
             element={
               <DataTable
                 data={this.state.data}
