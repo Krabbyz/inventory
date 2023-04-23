@@ -48,7 +48,7 @@ const DataTable = ({ data, onDataUpdate }) => {
         const boxesB = Math.floor(b.amount / b.amountPerBox);
         return boxesA - boxesB;
       },
-      render: (text, record) => {
+      render: (_, record) => {
         if (editingRow === record.key) {
           return (
             <Form.Item name="amountPerBox" rules={[{ required: true }]}>
@@ -61,7 +61,32 @@ const DataTable = ({ data, onDataUpdate }) => {
           );
         } else {
           const boxes = Math.floor(record.amount / record.amountPerBox);
-          return <p>{boxes}</p>;
+
+          const handleAddBox = () => {
+            const updatedDataSource = dataSource.map((row) => {
+              if (row.key === record.key) {
+                return { ...row, amount: row.amount + row.amountPerBox };
+              }
+              return row;
+            });
+            setDataSource(updatedDataSource);
+            onDataUpdate(updatedDataSource);
+          };
+
+          return (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <p>{boxes}</p>
+              <Button onClick={handleAddBox} type="default">
+                Add Box
+              </Button>
+            </div>
+          );
         }
       },
     },
@@ -191,6 +216,8 @@ const DataTable = ({ data, onDataUpdate }) => {
     updatedDataSource.splice(editingRow, 1, {
       ...values,
       key: editingRow,
+      amountPerBox: parseInt(values.amountPerBox, 10),
+      amount: parseInt(values.amount, 10),
       imageUrl: values.imageUrl || "https://i.imgur.com/cT7B2nD.png",
     });
 
