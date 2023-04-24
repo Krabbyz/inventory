@@ -237,7 +237,14 @@ const DataTable = ({ data, onDataUpdate }) => {
     return String(nextKey);
   };
 
-  const addNewRow = () => {
+  const addNewRow = async () => {
+    const response = await fetch('http://localhost:8000/tracking-list/')
+    const payload = await response.json();
+
+    console.log(payload)
+  }
+
+  const addNewRow2 = () => {
     const newRow = {
       key: getNextAvailableKey(),
       name: "enter name",
@@ -277,7 +284,7 @@ const DataTable = ({ data, onDataUpdate }) => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <Button onClick={addNewRow} type="primary" className="margin-bot">
-          Add new item
+          Add new item 2332
         </Button>
         <Table
           rowClassName="table-row-small"
