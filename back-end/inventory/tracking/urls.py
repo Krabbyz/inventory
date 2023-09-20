@@ -1,9 +1,8 @@
-from rest_framework.routers import SimpleRouter
-from .views import FooViewSet
+from .views import FooViewSet, ItemViewSet
+from rest_framework.routers import DefaultRouter
 
-
-router = SimpleRouter()
-router.register('tracking-list', FooViewSet, basename='tracking')
-
+router = DefaultRouter()
+router.register('foo', FooViewSet, basename='foo')
+router.register(r'tracking-list', ItemViewSet)
 
 urlpatterns = router.urls
