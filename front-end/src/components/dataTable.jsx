@@ -116,9 +116,18 @@ const DataTable = ({
     setIsModalVisible(true);
   };
 
+  // creating new row
   const handleOk = async () => {
     try {
       const newRow = await newRowForm.validateFields();
+
+      // makes sure amount and amountPerBox are ints
+      if (newRow.amount) {
+        newRow.amount = Number(newRow.amount);
+      }
+      if (newRow.amountPerBox) {
+        newRow.amountPerBox = Number(newRow.amountPerBox);
+      }
 
       // If imageUrl is not provided, set it to the default value
       if (!newRow.imageUrl) {
