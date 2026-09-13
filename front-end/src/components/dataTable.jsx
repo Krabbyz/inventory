@@ -74,6 +74,7 @@ const DataTable = ({
     setEditingKey(record.key);
   };
 
+  // cancel editing
   const cancel = () => {
     setEditingAnyRow(false);
     setEditingKey("");
@@ -136,9 +137,10 @@ const DataTable = ({
 
       const newId = await onAddNewRow(newRow);
       if (newId != null) {
-        newRow.key = newId.toString();
+        newRow.id = newId;
+        newRow.key = newId;
       } else {
-        // test
+        // Fallback for demos if the storage layer cannot generate an id.
         newRow.key = 9999 - data.length;
       }
 
@@ -148,7 +150,7 @@ const DataTable = ({
       newRowForm.resetFields();
     } catch (error) {
       console.error("An error occurred:", error);
-      // Handle the error here, e.g., by showing a message to the user
+      // Handle the error
     }
   };
 
@@ -157,7 +159,7 @@ const DataTable = ({
     newRowForm.resetFields();
   };
 
-  // Used for searching names
+  // Used for searching names of items
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     const filtered = data.filter((item) =>
@@ -195,6 +197,7 @@ const DataTable = ({
     onDeleteRow(key);
   };
 
+  // data table columns
   const columns = [
     {
       title: "Name",

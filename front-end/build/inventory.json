@@ -1,0 +1,299 @@
+[
+  {
+    "id": 1,
+    "key": 1,
+    "name": "Ai-Yu Powder",
+    "amountPerBox": 30,
+    "amount": 56,
+    "sku": "PWD-AIY-001",
+    "imageUrl": "https://i.imgur.com/BXLXEjC.png"
+  },
+  {
+    "id": 2,
+    "key": 2,
+    "name": "Black Tea",
+    "amountPerBox": 40,
+    "amount": 11,
+    "sku": "TEA-BLK-002",
+    "imageUrl": "https://i.imgur.com/wRkSSgU.png"
+  },
+  {
+    "id": 3,
+    "key": 3,
+    "name": "Brown Sugar Syrup",
+    "amountPerBox": 40,
+    "amount": 72,
+    "sku": "SYR-BRS-003",
+    "imageUrl": "https://i.imgur.com/3G43zcT.png"
+  },
+  {
+    "id": 4,
+    "key": 4,
+    "name": "Clover Milk",
+    "amountPerBox": 1,
+    "amount": 114,
+    "sku": "MLK-CLV-004",
+    "imageUrl": "https://i.imgur.com/GWGQE0L.png"
+  },
+  {
+    "id": 5,
+    "key": 5,
+    "name": "Coconut Jelly",
+    "amountPerBox": 10,
+    "amount": 39,
+    "sku": "TOP-COJ-005",
+    "imageUrl": "https://i.imgur.com/zXjfGgK.png"
+  },
+  {
+    "id": 6,
+    "key": 6,
+    "name": "Condensed Milk",
+    "amountPerBox": 15,
+    "amount": 34,
+    "sku": "MLK-CND-006",
+    "imageUrl": "https://i.imgur.com/r4Kh7tX.png"
+  },
+  {
+    "id": 7,
+    "key": 7,
+    "name": "Earl Grey Tea",
+    "amountPerBox": 40,
+    "amount": 126,
+    "sku": "TEA-EGY-007",
+    "imageUrl": "https://i.imgur.com/9kTatwQ.png"
+  },
+  {
+    "id": 8,
+    "key": 8,
+    "name": "Grapefruit Syrup",
+    "amountPerBox": 12,
+    "amount": 84,
+    "sku": "SYR-GRF-008",
+    "imageUrl": "https://i.imgur.com/8ZvVpFj.png"
+  },
+  {
+    "id": 9,
+    "key": 9,
+    "name": "Green Tea",
+    "amountPerBox": 40,
+    "amount": 63,
+    "sku": "TEA-GRN-009",
+    "imageUrl": "https://i.imgur.com/FjMCMnH.png"
+  },
+  {
+    "id": 10,
+    "key": 10,
+    "name": "Herbal Jelly Powder",
+    "amountPerBox": 20,
+    "amount": 21,
+    "sku": "PWD-HJP-010",
+    "imageUrl": "https://i.imgur.com/7lNrht3.png"
+  },
+  {
+    "id": 11,
+    "key": 11,
+    "name": "Honey",
+    "amountPerBox": 6,
+    "amount": 2,
+    "sku": "SYR-HNY-011",
+    "imageUrl": "https://i.imgur.com/KsDkhnq.png"
+  },
+  {
+    "id": 12,
+    "key": 12,
+    "name": "House Special Creamer",
+    "amountPerBox": 24,
+    "amount": 74,
+    "sku": "PWD-HSC-012",
+    "imageUrl": "https://i.imgur.com/cT7B2nD.png"
+  },
+  {
+    "id": 13,
+    "key": 13,
+    "name": "Kirkland Milk",
+    "amountPerBox": 1,
+    "amount": 2356,
+    "sku": "MLK-KRK-013",
+    "imageUrl": "https://i.imgur.com/pBSC4t6.png"
+  },
+  {
+    "id": 14,
+    "key": 14,
+    "name": "Lime Syrup",
+    "amountPerBox": 18,
+    "amount": 0,
+    "sku": "SYR-LIM-014",
+    "imageUrl": "https://i.imgur.com/cGK8Doh.png"
+  },
+  {
+    "id": 15,
+    "key": 15,
+    "name": "Lychee Syrup",
+    "amountPerBox": 12,
+    "amount": 22,
+    "sku": "SYR-LYC-015",
+    "imageUrl": "https://i.imgur.com/JPSYf9j.png"
+  },
+  {
+    "id": 16,
+    "key": 16,
+    "name": "Mango Puree",
+    "amountPerBox": 6,
+    "amount": 29,
+    "sku": "PUR-MNG-016",
+    "imageUrl": "https://i.imgur.com/1gLpmg9.png"
+  },
+  {
+    "id": 17,
+    "key": 17,
+    "name": "Matcha Powder",
+    "amountPerBox": 24,
+    "amount": 140,
+    "sku": "PWD-MAT-017",
+    "imageUrl": "https://i.imgur.com/ZfWED3A.png"
+  },
+  {
+    "id": 18,
+    "key": 18,
+    "name": "Mochi Waffle Powder",
+    "amountPerBox": 15,
+    "amount": 32,
+    "sku": "PWD-MWP-018",
+    "imageUrl": "https://i.imgur.com/7nvklFv.png"
+  },
+  {
+    "id": 19,
+    "key": 19,
+    "name": "Oat Milk",
+    "amountPerBox": 1,
+    "amount": 2,
+    "sku": "MLK-OAT-019",
+    "imageUrl": "https://i.imgur.com/G6ZUYpX.png"
+  },
+  {
+    "id": 20,
+    "key": 20,
+    "name": "Oolong Tea",
+    "amountPerBox": 40,
+    "amount": 2,
+    "sku": "TEA-OOL-020",
+    "imageUrl": "https://i.imgur.com/C7Z1ZCi.png"
+  },
+  {
+    "id": 21,
+    "key": 21,
+    "name": "Passion Fruit Syrup",
+    "amountPerBox": 12,
+    "amount": 74,
+    "sku": "SYR-PAS-021",
+    "imageUrl": "https://i.imgur.com/X4JLAE3.png"
+  },
+  {
+    "id": 22,
+    "key": 22,
+    "name": "Pearls",
+    "amountPerBox": 24,
+    "amount": 45,
+    "sku": "TOP-PRL-022",
+    "imageUrl": "https://i.imgur.com/FsrluI2.png"
+  },
+  {
+    "id": 23,
+    "key": 23,
+    "name": "Plant Creamer Powder",
+    "amountPerBox": 12,
+    "amount": 39,
+    "sku": "PWD-CRM-023",
+    "imageUrl": "https://i.imgur.com/iQnYLZc.png"
+  },
+  {
+    "id": 24,
+    "key": 24,
+    "name": "Pudding Powder",
+    "amountPerBox": 23,
+    "amount": 24,
+    "sku": "PWD-PUD-024",
+    "imageUrl": "https://i.imgur.com/yyRtwaf.png"
+  },
+  {
+    "id": 25,
+    "key": 25,
+    "name": "Rainbow Jelly",
+    "amountPerBox": 10,
+    "amount": 20,
+    "sku": "TOP-RBJ-025",
+    "imageUrl": "https://i.imgur.com/XLA5ycQ.png"
+  },
+  {
+    "id": 26,
+    "key": 26,
+    "name": "Star Peach Jelly",
+    "amountPerBox": 5,
+    "amount": 12,
+    "sku": "TOP-SPJ-026",
+    "imageUrl": "https://i.imgur.com/E8GUmP8.png"
+  },
+  {
+    "id": 27,
+    "key": 27,
+    "name": "Strawberry Syrup",
+    "amountPerBox": 20,
+    "amount": 35,
+    "sku": "SYR-STW-027",
+    "imageUrl": "https://i.imgur.com/6XXbZmd.png"
+  },
+  {
+    "id": 28,
+    "key": 28,
+    "name": "Syrup",
+    "amountPerBox": 6,
+    "amount": 23,
+    "sku": "SYR-GEN-028",
+    "imageUrl": "https://i.imgur.com/cT7B2nD.png"
+  },
+  {
+    "id": 29,
+    "key": 29,
+    "name": "Taro Powder",
+    "amountPerBox": 25,
+    "amount": 17,
+    "sku": "PWD-TAR-029",
+    "imageUrl": "https://i.imgur.com/RydmmJn.png"
+  },
+  {
+    "id": 30,
+    "key": 30,
+    "name": "Thai Tea",
+    "amountPerBox": 6,
+    "amount": 17,
+    "sku": "TEA-THA-030",
+    "imageUrl": "https://i.imgur.com/GmyGjGJ.png"
+  },
+  {
+    "id": 31,
+    "key": 31,
+    "name": "White Pearls",
+    "amountPerBox": 10,
+    "amount": 63,
+    "sku": "TOP-WPR-031",
+    "imageUrl": "https://i.imgur.com/UDGEk2Y.png"
+  },
+  {
+    "id": 32,
+    "key": 32,
+    "name": "Winter Melon",
+    "amountPerBox": 6,
+    "amount": 54,
+    "sku": "SYR-WML-032",
+    "imageUrl": "https://i.imgur.com/JhNWB0E.png"
+  },
+  {
+    "id": 33,
+    "key": 33,
+    "name": "test",
+    "amountPerBox": 2,
+    "amount": 5,
+    "sku": "TST-DEMO-033",
+    "imageUrl": "https://i.imgur.com/cT7B2nD.png"
+  }
+]

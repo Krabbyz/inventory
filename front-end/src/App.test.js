@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { HashRouter } from 'react-router-dom';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders inventory table controls', async () => {
+  render(
+    <HashRouter>
+      <App />
+    </HashRouter>
+  );
+
+  const addButton = await screen.findByRole('button', { name: /add new row/i });
+  expect(addButton).toBeInTheDocument();
 });

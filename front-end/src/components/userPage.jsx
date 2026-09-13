@@ -93,7 +93,7 @@ const UserPage = ({ data, onDecrement }) => {
       </div>
       <div style={{ paddingInline: 2, paddingBlock: 20 }}>
         <Link to="/">
-          <Button>data table</Button>
+          <Button>data table (for demo purposes)</Button>
         </Link>
       </div>
     </div>
